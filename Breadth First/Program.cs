@@ -10,6 +10,7 @@ namespace Breadth_First
     {
         static void Main(string[] args)
         {
+            Console.Write("Hello World\n");
         }
     }
 }
