@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class TreeNode<T>
 {
     private T value;
+    private bool visited = false;
     private bool hasParent;
     private List<TreeNode<T>> children;
 
@@ -14,15 +15,39 @@ public class TreeNode<T>
             throw new ArgumentNullException("Cannot insert null value");
         }
         this.value = value;
-        this.children = new List<TreeNode<T>>();
+        this.Children = new List<TreeNode<T>>();
 	}
 
-    public T Value { get; set; }
+    public T Value
+    {
+        get
+        {
+            return this.value;
+        }
+        set
+        {
+            this.value = value;
+        }
+    }
+
+    public bool Visited
+    {
+        get
+        {
+            return this.visited;
+        }
+        set
+        {
+            this.visited = value;
+        }
+    }
 
     public int ChildrenCount
     {
-        get { return this.children.Count; }
+        get { return this.Children.Count; }
     }
+
+    public List<TreeNode<T>> Children { get => children; set => children = value; }
 
     public void AddChild(TreeNode<T> child)
     {
@@ -37,11 +62,16 @@ public class TreeNode<T>
         }
 
         child.hasParent = true;
-        this.children.Add(child);
+        this.Children.Add(child);
     }
 
     public TreeNode<T> GetChild(int index)
     {
-        return this.children[index];
+        return this.Children[index];
+    }
+
+    public List<TreeNode<T>> GetChildren()
+    {
+        return this.Children;
     }
 }
