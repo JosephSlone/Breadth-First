@@ -61,7 +61,6 @@ public class Tree<T>
         this.PrintDFS(this.root, string.Empty);
     }
 
-
     public void TraverseBFS()
     {
         Queue<TreeNode<T>> que = new Queue<TreeNode<T>>();
